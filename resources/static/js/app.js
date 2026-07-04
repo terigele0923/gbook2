@@ -9,10 +9,20 @@ window.$ = window.jQuery = $;
 import 'simple-module';
 import 'simple-hotkeys';
 
+import Simditor from 'simditor';
+import 'simditor/styles/simditor.css';
+
 document.addEventListener('DOMContentLoaded', function () {
     const textarea = $('#editor');
 
     if (textarea.length) {
-        textarea.addClass('form-control');
+        try {
+            new Simditor({
+                textarea: textarea[0],
+            });
+        } catch (error) {
+            console.warn('Simditor initialization failed:', error);
+            textarea.addClass('form-control');
+        }
     }
 });
