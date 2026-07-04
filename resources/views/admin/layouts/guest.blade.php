@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/static/css/app.css', 'resources/static/js/app.js'])
     <title>@yield('title',"トップページ")</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

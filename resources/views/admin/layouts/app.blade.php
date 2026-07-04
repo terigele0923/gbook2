@@ -7,7 +7,7 @@
 
     <title>@yield('title', 'GBook2')</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/static/css/app.css', 'resources/static/js/app.js'])
 </head>
 
 <body>
