@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminLogin;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     //
@@ -13,8 +14,14 @@ class LoginController extends Controller
         return view('admin.login');
     }
 
-    public function check(Request $request)
+    public function check(AdminLogin $request)
     {
-        return response()->json(['status' => 'check method called'], 200);
+        $data = $request->validated();
+        $is =  Auth::guard('admin')->attempt($data);
+        if($is) {
+            return redirect()->route('admin.index')->with('success', 'ログイン成功');
+        } else {
+            return redirect()->route('admin.login')->with('error', 'ログイン失敗');
+        }
     }
 }

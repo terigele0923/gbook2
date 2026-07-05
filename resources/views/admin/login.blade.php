@@ -1,4 +1,4 @@
-@extends('admin.layouts.guest');
+@extends('admin.layouts.guest')
 
 @section('title')
     管理員ログイン

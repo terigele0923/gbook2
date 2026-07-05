@@ -16,7 +16,7 @@ class AdminUsersTableSeeder extends Seeder
         //
         AdminUser::create([
             'username' => 'admin',
-            'password' => Hash::make('admin'),
+            'password' => Hash::make('password'),
             'state' => AdminUser::NORMAL,]);    
     }
 }

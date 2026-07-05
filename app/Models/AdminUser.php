@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-class AdminUser extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class AdminUser extends Authenticatable
 {
     use SoftDeletes;
     //

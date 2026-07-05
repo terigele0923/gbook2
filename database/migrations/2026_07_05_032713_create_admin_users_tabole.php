@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('username',50)->unique();
             $table->string('password',255);
             $table->tinyInteger('state')->comment("権限ステータス");
+            $table->softDeletes();
             $table->timestamps();
         });
     }
