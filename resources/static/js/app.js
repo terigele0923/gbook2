@@ -9,20 +9,44 @@ window.$ = window.jQuery = $;
 import 'simple-module';
 import 'simple-hotkeys';
 
+// いったん simple-uploader は読み込まない
+// import 'simple-uploader';
+
 import Simditor from 'simditor';
 import 'simditor/styles/simditor.css';
 
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('app.js loaded');
+
     const textarea = $('#editor');
+    console.log('editor count:', textarea.length);
 
     if (textarea.length) {
-        try {
-            new Simditor({
-                textarea: textarea[0],
-            });
-        } catch (error) {
-            console.warn('Simditor initialization failed:', error);
-            textarea.addClass('form-control');
-        }
+        new Simditor({
+            textarea: textarea,
+            toolbar: [
+                'title',
+                'bold',
+                'italic',
+                'underline',
+                'strikethrough',
+                'fontScale',
+                'color',
+                'ol',
+                'ul',
+                'blockquote',
+                'code',
+                'table',
+                'link',
+                'hr',
+                'indent',
+                'outdent',
+                'alignment'
+            ],
+            upload: false,
+            pasteImage: false
+        });
+
+        console.log('Simditor initialized');
     }
 });
